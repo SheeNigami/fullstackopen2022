@@ -1,0 +1,16 @@
+note over browser:
+Form 'Submit' note button is clicked 
+end note
+
+note over browser:
+Note JSON is created:
+{content: "new note :)", date: "2019-05-23"}
+end note
+
+note over browser:
+Redraw (DOM) all notes being 
+displayed (including new note)
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_notes
+server-->browser: 201 Response {content: "new note :)", date: "2019-05-23"}
