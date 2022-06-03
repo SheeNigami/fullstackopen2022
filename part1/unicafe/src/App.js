@@ -7,6 +7,7 @@ const Button = ({handleClick, text}) => (
 )
 
 const StatDisplay = ({text, count}) => {
+
   if (text === 'positive') {
     return (
       <p>
@@ -14,6 +15,7 @@ const StatDisplay = ({text, count}) => {
       </p>
     )
   }
+
   return (
     <p>
       {text} {count}
@@ -24,6 +26,12 @@ const StatDisplay = ({text, count}) => {
 const Statistics = ({counts}) => {
   const {good, neutral, bad} = counts
 
+  if (good === 0 && neutral === 0 && bad === 0) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
+
   // Calculate Statistics
   const total = good + bad + neutral
   const avg = (good - bad) / total
@@ -31,7 +39,6 @@ const Statistics = ({counts}) => {
 
   return (
     <div>
-      <h1>statistics</h1>
       <StatDisplay text='good' count={good} />
       <StatDisplay text='neutral' count={neutral} />
       <StatDisplay text='bad' count={bad} />
@@ -64,6 +71,7 @@ const App = () => {
       <Button handleClick={handleGood} text='good'/>
       <Button handleClick={handleNeutral} text='neutral'/>
       <Button handleClick={handleBad} text='bad'/>
+      <h1>statistics</h1>
       <Statistics counts={statsProps}/>
     </div>
   )
