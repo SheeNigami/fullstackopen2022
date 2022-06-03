@@ -10,16 +10,18 @@ const StatisticLine = ({text, value}) => {
 
   if (text === 'positive') {
     return (
-      <p>
-        {text} {value} %
-      </p>
+      <tr>
+        <td>{text}</td>
+        <td>{value} %</td>
+      </tr>
     )
   }
 
   return (
-    <p>
-      {text} {value}
-    </p>
+      <tr>
+        <td>{text}</td>
+        <td>{value}</td>
+      </tr>
   )
 }
 
@@ -38,14 +40,16 @@ const Statistics = ({counts}) => {
   const positivePerc = (good / total) * 100
 
   return (
-    <div>
-      <StatisticLine text='good' value={good} />
-      <StatisticLine text='neutral' value={neutral} />
-      <StatisticLine text='bad' value={bad} />
-      <StatisticLine text='all' value={total} />
-      <StatisticLine text='average' value={avg} />
-      <StatisticLine text='positive' value={positivePerc} />
-    </div>
+    <table>
+      <tbody>
+        <StatisticLine text='good' value={good} />
+        <StatisticLine text='neutral' value={neutral} />
+        <StatisticLine text='bad' value={bad} />
+        <StatisticLine text='all' value={total} />
+        <StatisticLine text='average' value={avg} />
+        <StatisticLine text='positive' value={positivePerc} />
+      </tbody>
+    </table>
   )
 }
 
