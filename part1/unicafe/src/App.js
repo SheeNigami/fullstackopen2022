@@ -6,19 +6,19 @@ const Button = ({handleClick, text}) => (
   </button>
 )
 
-const StatDisplay = ({text, count}) => {
+const StatisticLine = ({text, value}) => {
 
   if (text === 'positive') {
     return (
       <p>
-        {text} {count} %
+        {text} {value} %
       </p>
     )
   }
 
   return (
     <p>
-      {text} {count}
+      {text} {value}
     </p>
   )
 }
@@ -39,12 +39,12 @@ const Statistics = ({counts}) => {
 
   return (
     <div>
-      <StatDisplay text='good' count={good} />
-      <StatDisplay text='neutral' count={neutral} />
-      <StatDisplay text='bad' count={bad} />
-      <StatDisplay text='all' count={total} />
-      <StatDisplay text='average' count={avg} />
-      <StatDisplay text='positive' count={positivePerc} />
+      <StatisticLine text='good' value={good} />
+      <StatisticLine text='neutral' value={neutral} />
+      <StatisticLine text='bad' value={bad} />
+      <StatisticLine text='all' value={total} />
+      <StatisticLine text='average' value={avg} />
+      <StatisticLine text='positive' value={positivePerc} />
     </div>
   )
 }
