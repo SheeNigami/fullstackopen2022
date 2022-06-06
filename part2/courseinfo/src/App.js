@@ -16,7 +16,7 @@ const Content = ({ parts }) =>
 
 
 const Course = ({course}) => {
-  const {id, name , parts} = course
+  const {name, parts} = course
   const sum = parts.reduce((total, obj) => total + obj.exercises, 0)
 
   return (
