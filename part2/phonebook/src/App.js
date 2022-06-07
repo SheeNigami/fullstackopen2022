@@ -4,6 +4,7 @@ import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 
 const App = () => {
+  // Dummy data
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-123456', id: 1 },
     { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
@@ -11,6 +12,7 @@ const App = () => {
     { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }
   ])
 
+  // Input States
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [search, setSearch] = useState('')
@@ -19,10 +21,11 @@ const App = () => {
   const handleNumberChange = (event) => setNewNumber(event.target.value)
   const handleSearch = (event) => setSearch(event.target.value)
 
-
+  // For submit button
   const handleAdd = (event) => {
       event.preventDefault()
 
+      // Only add if name does not already exist
       const dupe = persons.find(ele => ele.name === newName) 
       if (dupe === undefined) {
           const newPerson = {
@@ -33,6 +36,8 @@ const App = () => {
       } else {
           window.alert(`${newName} is already added to phonebook`)   
       }
+
+      // Reset Inputs
       setNewName('')
       setNewNumber('')
   }
