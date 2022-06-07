@@ -23,23 +23,23 @@ const App = () => {
 
   // For submit button
   const handleAdd = (event) => {
-      event.preventDefault()
+    event.preventDefault()
 
-      // Only add if name does not already exist
-      const dupe = persons.find(ele => ele.name === newName) 
-      if (dupe === undefined) {
-          const newPerson = {
-          name: newName,
-          number: newNumber
-          }
-          setPersons(persons.concat(newPerson))
-      } else {
-          window.alert(`${newName} is already added to phonebook`)   
+    // Only add if name does not already exist
+    const dupe = persons.find(ele => ele.name === newName) 
+    if (dupe === undefined) {
+      const newPerson = {
+        name: newName,
+        number: newNumber
       }
+      setPersons(persons.concat(newPerson))
+    } else {
+      window.alert(`${newName} is already added to phonebook`)   
+    }
 
-      // Reset Inputs
-      setNewName('')
-      setNewNumber('')
+    // Reset Inputs
+    setNewName('')
+    setNewNumber('')
   }
 
   return (
@@ -51,11 +51,11 @@ const App = () => {
         handles={[handleAdd, handleNoteChange, handleNumberChange]} inputs={[newName, newNumber]} 
       />
       <h3>Numbers</h3>
-       {persons.filter(person => 
-          person.name.includes(search)
-        ).map(person => 
-          <Persons key={person.name} person={person} />
-       )}
+      {persons.filter(person => 
+        person.name.includes(search)
+      ).map(person => 
+        <Persons key={person.name} person={person} />
+      )}
     </div>
   )
 }
