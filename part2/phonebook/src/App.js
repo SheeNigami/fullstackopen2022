@@ -52,9 +52,9 @@ const App = () => {
       />
       <h3>Numbers</h3>
        {persons.filter(person => 
-         person.name.includes(search)
-       ).map(person => 
-         <Persons key={person.name} person={person} />
+          person.name.includes(search)
+        ).map(person => 
+          <Persons key={person.name} person={person} />
        )}
     </div>
   )
