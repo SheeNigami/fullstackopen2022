@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 const Number = ({name}) => {
-  console.log(name)
   return (
     <p>{name}</p>
   )
@@ -13,17 +12,24 @@ const App = () => {
   const [newName, setNewName] = useState('')
 
   const handleNoteChange = (event) => {
-    console.log(event.target.value)
     setNewName(event.target.value)
   }
 
   const handleAdd = (event) => {
     event.preventDefault()
-    const newPerson = {
-      name: newName
+
+    const dupe = persons.find(ele => ele.name === newName) 
+    if (dupe === undefined) {
+      const newPerson = {
+        name: newName
+      }
+      setPersons(persons.concat(newPerson))
+      setNewName('')
+    } else {
+      window.alert(`${newName} is already added to phonebook`)   
+      setNewName('')
     }
-    setPersons(persons.concat(newPerson))
-    setNewName('')
+
   }
 
   return (
